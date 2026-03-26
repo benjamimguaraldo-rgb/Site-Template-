@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Contato - Site de Ex</title>
+<link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+<header>
+    Contato
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+</header>
+
+<section class="card">
+    <div class="card-item" style="flex-direction: column; gap: 15px;">
+        <div class="text-placeholder" style="font-size:18px;">
+            Envie sua mensagem por email:
+        </div>
+        <form id="contatoForm">
+            <input type="text" id="nome" placeholder="Seu nome">
+            <input type="email" id="email" placeholder="Seu email">
+            <textarea id="mensagem" placeholder="Sua mensagem" rows="4"></textarea>
+            <button type="submit">Enviar</button>
+            <div id="formMsg"></div>
+        </form>
+    </div>
+</section>
+
+<script src="global.js"></script>
+</body>
+</html>
