@@ -2,13 +2,13 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Contato - Site de Ex</title>
+<title>Contato</title>
 <link rel="stylesheet" href="global.css">
 </head>
 <body>
 
 <header>
-    Contato
+    <h1>Contato</h1>
     <nav>
         <a href="index.html">Home</a>
         <a href="galeria.html">Galeria</a>
@@ -16,20 +16,22 @@
     </nav>
 </header>
 
-<section class="card">
-    <div class="card-item" style="flex-direction: column; gap: 15px;">
-        <div class="text-placeholder" style="font-size:18px;">
-            Envie sua mensagem por email:
+<main>
+    <h2>Contato</h2>
+    <p>Envie uma mensagem:</p>
+
+    <section class="card">
+        <div class="card-item card-form">
+            <form id="contatoForm">
+                <input type="text" id="nome" placeholder="Seu nome">
+                <input type="email" id="email" placeholder="Seu email">
+                <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
+                <button type="submit">Enviar</button>
+                <div id="formMsg"></div>
+            </form>
         </div>
-        <form id="contatoForm">
-            <input type="text" id="nome" placeholder="Seu nome">
-            <input type="email" id="email" placeholder="Seu email">
-            <textarea id="mensagem" placeholder="Sua mensagem" rows="4"></textarea>
-            <button type="submit">Enviar</button>
-            <div id="formMsg"></div>
-        </form>
-    </div>
-</section>
+    </section>
+</main>
 
 <script src="global.js"></script>
 </body>
