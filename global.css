@@ -1,121 +1,155 @@
-/* ===== Global CSS ===== */
-body {
+/* ===== Reset ===== */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     background: #000;
     color: #00ff88;
-    text-align: center;
 }
 
+/* ===== Header ===== */
 header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
     background: #001a0f;
-    width: 100%;
-    padding: 20px 0;
-    font-size: 28px;
-    font-weight: bold;
-    box-shadow: 0 0 10px #00ff88;
+    box-shadow: 0 0 15px #00ff88;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 22px;
 }
 
 nav a {
     color: #00ff88;
-    margin: 0 15px;
     text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover {
-    text-decoration: underline;
+    margin-left: 20px;
+    position: relative;
 }
 
-section.card {
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #00ff88;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* ===== Main ===== */
+main {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 25px;
+}
+
+/* ===== Cards ===== */
+.card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0;
+    gap: 20px;
 }
 
 .card-item {
+    flex: 1 1 300px;
     background: #001a0f;
     border: 2px solid #00ff88;
-    border-radius: 12px;
-    width: 300px;
-    margin: 15px;
-    padding: 15px;
-    box-shadow: 0 0 15px #00ff88;
+    border-radius: 15px;
+    padding: 20px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    gap: 15px;
+    transition: 0.3s;
 }
 
 .card-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 35px #00ff88;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #00ff88;
 }
 
 .img-placeholder {
-    background: #000;
+    width: 120px;
+    height: 120px;
     border: 2px dashed #00ff88;
-    width: 100px;
-    height: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 14px;
+    justify-content: center;
 }
 
 .text-placeholder {
     flex: 1;
-    text-align: left;
-    font-size: 16px;
 }
 
-/* Formulário Contato */
+/* ===== Form ===== */
+.card-form {
+    flex-direction: column;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 12px;
 }
 
-form input,
-form textarea,
-form button {
+input, textarea {
     padding: 10px;
     border-radius: 8px;
     border: 2px solid #00ff88;
     background: #000;
     color: #00ff88;
-    font-size: 16px;
 }
 
-form button {
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background: #00ff88;
+    color: #000;
+    font-weight: bold;
     cursor: pointer;
-    background: #001a0f;
-    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 8px;
+    transition: 0.2s;
 }
 
-form button:hover {
+button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #00ff88;
 }
 
-#formMsg {
-    margin-top: 10px;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* Responsivo */
-@media (max-width: 500px) {
-    .card-item {
+/* ===== Responsivo ===== */
+@media (max-width: 700px) {
+    header {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        gap: 10px;
     }
-    .text-placeholder {
-        text-align: center;
+
+    nav a {
+        margin: 0 10px;
     }
 }
