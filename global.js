@@ -1,21 +1,35 @@
-// ===== Formulário Contato =====
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contatoForm');
-    const formMsg = document.getElementById('formMsg');
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (form && formMsg) {
-        form.addEventListener('submit', function(e) {
+    // ===== Highlight página ativa =====
+    const links = document.querySelectorAll("nav a");
+    links.forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add("active");
+        }
+    });
+
+    // ===== Formulário =====
+    const form = document.getElementById("contatoForm");
+    const msg = document.getElementById("formMsg");
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const nome = form.querySelector('#nome').value.trim();
-            const email = form.querySelector('#email').value.trim();
-            const mensagem = form.querySelector('#mensagem').value.trim();
+
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mensagem = document.getElementById("mensagem").value.trim();
 
             if (!nome || !email || !mensagem) {
-                formMsg.textContent = "⚠️ Preencha todos os campos!";
+                msg.textContent = "Preencha todos os campos.";
+                msg.style.color = "red";
                 return;
             }
 
-            formMsg.textContent = "✅ Mensagem pronta para enviar! (Não envia de verdade)";
+            msg.textContent = "Mensagem enviada (simulação).";
+            msg.style.color = "#00ff88";
+            form.reset();
         });
     }
+
 });
